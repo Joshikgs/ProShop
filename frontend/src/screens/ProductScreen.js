@@ -5,6 +5,7 @@ import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
 import Rating from '../components/Rating'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
+import { addToCart } from '../actions/cartActions'
 import { listProductDetails } from '../actions/productActions'
 
 const ProductScreen = ({ match, history }) => {
@@ -20,7 +21,8 @@ const ProductScreen = ({ match, history }) => {
     }, [dispatch, match])
 
     const addToCartHandler = () => {
-        history.push(`/cart/${match.params.id}?qty=${qty}`)
+        dispatch(addToCart(match.params.id, qty))
+        // history.push(`/cart/${match.params.id}?qty=${qty}`)
     }
 
     const goBackHandler = () => {
