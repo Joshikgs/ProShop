@@ -23,11 +23,15 @@ const ProductScreen = ({ match, history }) => {
         history.push(`/cart/${match.params.id}?qty=${qty}`)
     }
 
+    const goBackHandler = () => {
+        history.go(-1)
+    }
+
     return (
         <>
-            <Link className='btn btn-light my-3' to='/'>
+            <Button onClick={goBackHandler} className='btn btn-light my-3' to='/'>
                 Go Back
-            </Link>
+            </Button>
             {loading ? <Loader /> 
             : error ? <Message variant='danger'>{error}</Message> 
             :   <Row>
