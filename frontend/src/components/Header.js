@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import { logout } from '../actions/userActions'
-import { Redirect } from 'react-router-dom'
 
-const Header = (props) => {
+const Header = ({ history }) => {
     const dispatch = useDispatch()
 
     const userLogin = useSelector(state => state.userLogin)
@@ -13,7 +12,6 @@ const Header = (props) => {
 
     const logoutHandler = () => {
         dispatch(logout())
-        console.log(props)
     }
 
     return (
@@ -34,7 +32,9 @@ const Header = (props) => {
                                     <LinkContainer to='/profile'>
                                         <NavDropdown.Item>Profile</NavDropdown.Item>
                                     </LinkContainer>
-                                    <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+                                    <LinkContainer to='/'>
+                                        <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+                                    </LinkContainer>
                                 </NavDropdown>
                             ):(
                                 <LinkContainer to='/login'>
