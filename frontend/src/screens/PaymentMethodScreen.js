@@ -38,7 +38,8 @@ const PaymentMethodScreen = ({ history }) => {
                             label='PayPal or Credit Card'
                             id='PayPal' name='paymentMethod'
                             value='PayPal'
-                            onChange={(e) => setPaymentMethod(e.target.value)}>
+                            onChange={(e) => setPaymentMethod(e.target.value)}
+                            required>
                         </Form.Check>
                         <Form.Check
                             type='radio'
