@@ -22,9 +22,11 @@ const OrderScreen = ({ match }) => {
     }
 
     useEffect(() => {
-        dispatch(getOrderDetails(orderId))
-        // eslint-disable-next-line
-    }, [getOrderDetails])
+        if(!order || order._id !== orderId){
+            dispatch(getOrderDetails(orderId))
+        }
+    }, [dispatch, order, orderId])
+    
     return (
         loading ? <Loader /> 
             : error ?
