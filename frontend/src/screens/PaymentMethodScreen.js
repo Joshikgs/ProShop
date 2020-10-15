@@ -39,21 +39,7 @@ const PaymentMethodScreen = ({ history }) => {
                             id='PayPal' name='paymentMethod'
                             value='PayPal'
                             onChange={(e) => setPaymentMethod(e.target.value)}
-                            required>
-                        </Form.Check>
-                        <Form.Check
-                            type='radio'
-                            label='E-Wallet (ApplePay, SamsungPay, etc)'
-                            id='EWallet' name='paymentMethod'
-                            value='EWallet'
-                            onChange={(e) => setPaymentMethod(e.target.value)}>
-                        </Form.Check>
-                        <Form.Check
-                            type='radio'
-                            label='Bank Account or Electronic Check'
-                            id='BankAccount' name='paymentMethod'
-                            value='BankAccount'
-                            onChange={(e) => setPaymentMethod(e.target.value)}>
+                            checked>
                         </Form.Check>
                     </Col>
                 </Form.Group>
