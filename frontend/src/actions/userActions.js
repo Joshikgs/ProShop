@@ -5,6 +5,7 @@ import {
     USER_DETAILS_SUCCESS,
     USER_LIST_FAIL,
     USER_LIST_REQUEST,
+    USER_LIST_RESET,
     USER_LIST_SUCCESS,
     USER_LOGIN_FAIL,
     USER_LOGIN_REQUEST,
@@ -55,6 +56,7 @@ export const logout = () => (dispatch) => {
     dispatch({ type: USER_DETAILS_RESET })
     dispatch({ type: ORDER_MY_LIST_RESET })
     dispatch({ type: CART_RESET })
+    dispatch({ type: USER_LIST_RESET })
 }
 
 export const register = (name, email, password) => async (dispatch) => {
