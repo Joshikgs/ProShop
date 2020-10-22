@@ -23,6 +23,10 @@ const AdminEditUserScreen = ({ match, history }) => {
     const userUpdate = useSelector(state => state.userUpdate)
     const { loading:loadingUpdate, error:errorUpdate, success:successUpdate } = userUpdate
 
+    const userLogin = useSelector(state => state.userLogin)
+    const { userInfo } = userLogin
+    
+
     useEffect(() => {
         if(successUpdate){
             dispatch({ type: USER_UPDATE_RESET })
@@ -66,7 +70,7 @@ const AdminEditUserScreen = ({ match, history }) => {
                                 <Form.Control type='email' placeholder='Enter email' value={email} onChange={e => setEmail(e.target.value)}></Form.Control>
                             </Form.Group>
                             <Form.Group controlId='isadmin'>
-                                <Form.Check type='checkbox' label='Admin' checked={isAdmin} onChange={(e) => setIsAdmin(e.target.checked)}></Form.Check>
+                                <Form.Check type='checkbox' label='Admin' checked={userId === userInfo._id ? true : isAdmin} onChange={(e) => setIsAdmin(e.target.checked)}></Form.Check>
                             </Form.Group>
                             <Button type='submit' variant='primary'>
                                 Update
